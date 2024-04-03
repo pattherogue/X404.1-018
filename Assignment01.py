@@ -32,7 +32,7 @@ def populate_and_shuffle(n):
     #loop through each index of list
     for i in range(n):
         #generate random index from i to n-1
-        rand_index = random.randomint(i, n-1)
+        rand_index = random.randint(i, n-1)
         #swap values
         arr[i], arr[rand_index] = arr[rand_index], arr[i]
     #return shuffled list
@@ -69,7 +69,7 @@ def count_occurence(arr, target):
             if left < len(arr) and arr[left] == target:
                 result = left
 
-            return result
+        return result
     
     #functon to find rightmost index of target value
     def rightmost_index(arr, target):
@@ -93,47 +93,47 @@ def count_occurence(arr, target):
             if right >= 0 and arr[right] == target:
                 result = right 
             
-            return result
+        return result
         
-        #find leftmost and rightmost indices of target
-        left_index = leftmost_index(arr, target)
-        right_index = rightmost_index(arr, target)
+    #find leftmost and rightmost indices of target
+    left_index = leftmost_index(arr, target)
+    right_index = rightmost_index(arr, target)
 
-        #if neither is found, return 0
-        if left_index == -1 or right_index == -1:
-            return 0
+    #if neither is found, return 0
+    if left_index == -1 or right_index == -1:
+        return 0
         
-        #otherwise retun count of occurence
-        return right_index - left_index + 1
+    #otherwise retun count of occurence
+    return right_index - left_index + 1
     
-    '''
-    Time Complexity: O(log n) 
-    '''
+'''
+Time Complexity: O(log n) 
+'''
 
-    # 4.
+# 4.
 
-    def find_max_index(arr):
-        #initialize leftmost index
-        left = 0
-        #initialize rightmost index
-        right = len(arr) - 1
+def find_max_index(arr):
+    #initialize leftmost index
+    left = 0
+    #initialize rightmost index
+    right = len(arr) - 1
 
-        #loop until left index is less than right index
-        while left < right:
-            #calculate middle index 
-            mid = (left + right) // 2
+    #loop until left index is less than right index
+    while left < right:
+        #calculate middle index 
+        mid = (left + right) // 2
 
-            #if mddle index value is greater than value of right index
-            if arr[mid] > arr[right]:
-                #if yes, move left pointer to right of middle index
-                left = mid + 1
-            else:
-                #otherwise move right pointer to middle index
-                right = mid
+    #if mddle index value is greater than value of right index
+        if arr[mid] > arr[right]:
+            #if yes, move left pointer to right of middle index
+            left = mid + 1
+        else:
+            #otherwise move right pointer to middle index
+            right = mid
 
-            #return left index which represents index of largest value in array
-            return left
+    #return left index which represents index of largest value in array
+    return left
         
-    '''
-    Time Complexity: O(log n) 
-    '''
+'''
+Time Complexity: O(log n) 
+'''
