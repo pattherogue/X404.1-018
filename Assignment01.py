@@ -25,7 +25,7 @@ The total number of stickers counted grows quadratically with size of sheet.
 # 2.
 
 import random
-#function that takes in argument "n"
+
 def populate_and_shuffle(n):
     #list containing numbers from 0 to n-1
     arr = [i for i in range(n)]
@@ -106,6 +106,34 @@ def count_occurence(arr, target):
         #otherwise retun count of occurence
         return right_index - left_index + 1
     
+    '''
+    Time Complexity: O(log n) 
+    '''
+
+    # 4.
+
+    def find_max_index(arr):
+        #initialize leftmost index
+        left = 0
+        #initialize rightmost index
+        right = len(arr) - 1
+
+        #loop until left index is less than right index
+        while left < right:
+            #calculate middle index 
+            mid = (left + right) // 2
+
+            #if mddle index value is greater than value of right index
+            if arr[mid] > arr[right]:
+                #if yes, move left pointer to right of middle index
+                left = mid + 1
+            else:
+                #otherwise move right pointer to middle index
+                right = mid
+
+            #return left index which represents index of largest value in array
+            return left
+        
     '''
     Time Complexity: O(log n) 
     '''
