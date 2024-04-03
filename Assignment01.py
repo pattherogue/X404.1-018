@@ -57,8 +57,55 @@ def count_occurence(arr, target):
         #binary search to find leftmost index
         while left <= right:
             mid = (left + right) // 2
-            #if midle elemnt is greater than or equal to target, move left side
+            #if midle elemnt is greater than or equal to target, move left subarray
             if arr[mid] >= target:
                 right = mid - 1
             else:
+                #otherwise move to the right subarray
                 left = mid + 1
+
+            #if leftmost index is within array and elemnt at index is target
+            #update result value with leftmost index
+            if left < len(arr) and arr[left] == target:
+                result = left
+
+            return result
+    
+    #functon to find rightmost index of target value
+    def rightmost_index(arr, target):
+        #initialize variables
+        left = 0
+        right = len(arr) - 1
+        result = -1
+
+        #binary search to find rightmost index
+        while left <= right:
+            mid = (left + right) // 2
+            #if middle element less than or equal to target, move to right subarray
+            if arr[mid] <= target:
+                left = mid + 1
+            else:
+                #otherwise move to left subarray
+                right = mid - 1
+
+            #if rightmost index is within array and element at index is target
+            #update result with rightmost index
+            if right >= 0 and arr[right] == target:
+                result = right 
+            
+            return result
+        
+        #find leftmost and rightmost indices of target
+        left_index = leftmost_index(arr, target)
+        right_index = rightmost_index(arr, target)
+
+        #if neither is found, return 0
+        if left_index == -1 or right_index == -1:
+            return 0
+        
+        #otherwise retun count of occurence
+        return right_index - left_index + 1
+    
+    '''
+    Time Complexity: O(log n) 
+    '''
