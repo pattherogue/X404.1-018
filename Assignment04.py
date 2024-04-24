@@ -1,4 +1,4 @@
-# 1. Reverse a Doubly Linked List
+# 1. 
 class Node:
     def __init__(self, data):
         self.data = data
@@ -43,9 +43,7 @@ class DoublyLinkedList:
         print()
 
 
-
-
-# 2. Union of Linked Lists
+# 2.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -81,7 +79,7 @@ def union(head1, head2):
     return result_head
 
 
-# 3. Binary Search Tree Operations
+# 3.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -111,7 +109,7 @@ def find_sum(root):
     return root.val + find_sum(root.left) + find_sum(root.right)
 
 
-# 4. Binary Tree Validation
+# 4.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
